@@ -20,6 +20,6 @@ public abstract class Unit {
     public abstract void rest();
     @Override
     public String toString() {
-        return name;
+        return ("Class " + this.getClass().getSimpleName() + " name " +name);
     }
 }
