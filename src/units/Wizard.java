@@ -7,8 +7,8 @@ public class Wizard extends Unit implements Curse, Magic {
     int mana;
     int intellect;
     int magicDamage;
-    public Wizard(String name, int age) {
-        super(name, age, 25, 3, 40, "stick");
+    public Wizard(String name, int x, int y) {
+        super(name, 40, 25, 3, 40, "stick", x, y);
         this.intellect = 10;
         this.mana = 10;
         this.magicDamage = 3;

@@ -7,8 +7,8 @@ public class Pikeman extends Unit implements Attack, SpearAttack {
     int stamina;
     int power;
 
-    public Pikeman(String name, int age) {
-        super(name, age, 60, 20, 30, "spear");
+    public Pikeman(String name, int x, int y) {
+        super(name, 27, 60, 20, 30, "spear", x, y);
         this.stamina = 60;
         this.power = 10;
     }

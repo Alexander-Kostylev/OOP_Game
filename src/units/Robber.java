@@ -8,8 +8,8 @@ public class Robber extends Unit implements Attack, Steal {
     int power;
     int numSteal;
 
-    public Robber(String name, int age) {
-        super(name, age, 40, 10, 20, "knife");
+    public Robber(String name, int x, int y) {
+        super(name, 27, 40, 10, 20, "knife", x, y);
         this.stamina = 40;
         this.power = 5;
         this.numSteal = 5;

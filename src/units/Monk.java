@@ -6,8 +6,8 @@ import actions.Revive;
 public class Monk extends Unit implements Healing, Revive {
     int mana;
     int intellect;
-    public Monk(String name, int age) {
-        super(name, age, 40, 7, 20,"scroll");
+    public Monk(String name, int x, int y) {
+        super(name, 55, 40, 7, 20,"scroll", x, y);
         this.mana = 20;
         this.intellect = 5;
     }

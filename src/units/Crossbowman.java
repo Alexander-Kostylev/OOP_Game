@@ -7,8 +7,8 @@ public class Crossbowman extends Unit implements Shot {
     int stamina;
     int capacityQuiver;
     int numBolt;
-    public Crossbowman(String name, int age) {
-        super(name, age, 45, 10, 30, "crossbow");
+    public Crossbowman(String name, int x, int y) {
+        super(name, 25, 45, 10, 30, "crossbow", x, y);
         this.agility=5;
         this.stamina=30;
         this.capacityQuiver = 5;
