@@ -3,14 +3,17 @@ package units;
 import actions.Attack;
 import actions.SpearAttack;
 
+import java.util.ArrayList;
+
 public class Pikeman extends Unit implements Attack, SpearAttack {
     int stamina;
     int power;
 
-    public Pikeman(String name, int age) {
-        super(name, age, 60, 20, 30, "spear");
+    public Pikeman(String name, int x, int y) {
+        super(name, 27, 60, 20, 30, "spear", x, y);
         this.stamina = 60;
         this.power = 10;
+        this.speed = 2;
     }
 
     @Override
@@ -28,5 +31,10 @@ public class Pikeman extends Unit implements Attack, SpearAttack {
     @Override
     public void rest() {
         this.stamina += 10;
+    }
+
+    @Override
+    public void step(ArrayList<Unit> units) {
+
     }
 }

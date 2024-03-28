@@ -3,13 +3,16 @@ package units;
 import actions.Healing;
 import actions.Revive;
 
+import java.util.ArrayList;
+
 public class Monk extends Unit implements Healing, Revive {
     int mana;
     int intellect;
-    public Monk(String name, int age) {
-        super(name, age, 40, 7, 20,"scroll");
+    public Monk(String name, int x, int y) {
+        super(name,55, 40, 7, 20,"scroll", x, y);
         this.mana = 20;
         this.intellect = 5;
+        this.speed = 1;
     }
 
     @Override
@@ -27,5 +30,10 @@ public class Monk extends Unit implements Healing, Revive {
     public void revive(Unit unit) {
         unit.health += 25;
         mana -= 18;
+    }
+
+    @Override
+    public void step(ArrayList<Unit> units) {
+
     }
 }

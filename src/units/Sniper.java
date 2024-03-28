@@ -2,18 +2,24 @@ package units;
 
 import actions.Shot;
 
-public class Sniper extends Unit implements Shot {
-    int agility;    //ловкость
-    int stamina;
-    int capacityQuiver;
-    int numArrows;
+import java.util.ArrayList;
 
-    public Sniper(String name, int age) {
-        super(name, age, 35, 5, 15, "bow");
+public class Sniper extends Unit implements Shot {
+    private int agility;    //ловкость
+    private int stamina;
+    private int capacityQuiver;
+    private int numArrows;
+
+    private int damage;
+
+    public Sniper(String name, int x, int y) {
+        super(name, 25, 35, 5, 15, "bow", x, y);
         this.agility = 10;
         this.stamina = 40;
         this.capacityQuiver = 7;
         this.numArrows = 7;
+        this.damage = 7;
+        this.speed = 3;
     }
 
     @Override
@@ -26,4 +32,15 @@ public class Sniper extends Unit implements Shot {
     public void rest() {
         this.stamina += 4;
     }
+
+    @Override
+    public void step(ArrayList<Unit> units) {
+        if(numArrows > 0 && isLife()){
+            nearestEnemy(units).health -= damage;
+            numArrows--;
+        }
+
+    }
+
+    private boolean isLife(){return (this.health > 0);}
 }
