@@ -1,14 +1,19 @@
 package units;
 
-import java.util.ArrayList;
+import actions.GameInterface;
 
-public abstract class Unit {
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public abstract class Unit implements GameInterface {
     protected String name;
     protected int age;
     protected int health;
     protected int defense;
     protected int gold;
     protected String weapon;
+
+    public int speed;
 
     protected Position position;
 
@@ -29,6 +34,9 @@ public abstract class Unit {
         return ("Класс " + this.getClass().getSimpleName() + " имя " + name
                 + " находится: " + "x=" + position.getPosX() + ", y=" + position.getPosY());
     }
+    public int getHealth(){
+        return this.health;
+    }
 
     public Unit nearestEnemy(ArrayList<Unit> enemy){
         double smallestDistance = position.getDistance(enemy.get(0).position);
@@ -42,4 +50,6 @@ public abstract class Unit {
         }
         return enemy.get(indexEnemy);
     }
+
+
 }

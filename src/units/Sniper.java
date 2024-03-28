@@ -5,10 +5,12 @@ import actions.Shot;
 import java.util.ArrayList;
 
 public class Sniper extends Unit implements Shot {
-    int agility;    //ловкость
-    int stamina;
-    int capacityQuiver;
-    int numArrows;
+    private int agility;    //ловкость
+    private int stamina;
+    private int capacityQuiver;
+    private int numArrows;
+
+    private int damage;
 
     public Sniper(String name, int x, int y) {
         super(name, 25, 35, 5, 15, "bow", x, y);
@@ -16,14 +18,9 @@ public class Sniper extends Unit implements Shot {
         this.stamina = 40;
         this.capacityQuiver = 7;
         this.numArrows = 7;
+        this.damage = 7;
+        this.speed = 3;
     }
-
-//    public double nearestEnemy(ArrayList<Unit> enemy) {
-//        double distance;
-//        enemy.
-//
-//        return distance;
-//    }
 
     @Override
     public void shot(Unit unit) {
@@ -35,4 +32,15 @@ public class Sniper extends Unit implements Shot {
     public void rest() {
         this.stamina += 4;
     }
+
+    @Override
+    public void step(ArrayList<Unit> units) {
+        if(numArrows > 0 && isLife()){
+            nearestEnemy(units).health -= damage;
+            numArrows--;
+        }
+
+    }
+
+    private boolean isLife(){return (this.health > 0);}
 }

@@ -3,6 +3,8 @@ package units;
 import actions.Attack;
 import actions.Steal;
 
+import java.util.ArrayList;
+
 public class Robber extends Unit implements Attack, Steal {
     int stamina;
     int power;
@@ -13,7 +15,7 @@ public class Robber extends Unit implements Attack, Steal {
         this.stamina = 40;
         this.power = 5;
         this.numSteal = 5;
-
+        this.speed = 2;
     }
 
     @Override
@@ -29,5 +31,10 @@ public class Robber extends Unit implements Attack, Steal {
     @Override
     public void rest() {
         this.stamina += 4;
+    }
+
+    @Override
+    public void step(ArrayList<Unit> units) {
+
     }
 }

@@ -6,20 +6,37 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 
+        // создание 2-х команд
         holyTeam = createTeam(0);
         darkTeam = createTeam(3);
 
+        //вывод состав команд
         System.out.println(holyTeam);
         System.out.println("=================================================");
         System.out.println(darkTeam);
         System.out.println("=================================================");
 
-        // поиск ближайших целей стрелков команды holyTeam
-       for (int i = 0; i <holyTeam.size(); i++) {
-           if (holyTeam.get(i) instanceof Crossbowman)
-               System.out.println(holyTeam.get(i).nearestEnemy(darkTeam));
-       }
+
+        // поиск ближайших целей стрелков команды holyTeam и выстрел по ближайшему противнику
+        for (int i = 0; i < holyTeam.size(); i++) {
+            if (holyTeam.get(i) instanceof Crossbowman) {
+                System.out.println("До выстрела здоровье цели: " + darkTeam.get(i).getHealth());
+                System.out.println("Количество выстрелов до действия: " + ((Crossbowman) holyTeam.get(i)).getBolts());
+                holyTeam.get(i).step(darkTeam);
+                System.out.println("Количество выстрелов после действия: " + ((Crossbowman) holyTeam.get(i)).getBolts());
+                System.out.println("После выстрела здоровье цели:" + darkTeam.get(i).getHealth());
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            }
+        }
+
+        // Определение очередности ходов.
+        // Создали общий список со всеми юнитами из 2-х команд. Сортировка по скорости. Вывод всех юнитов.
+        ArrayList<Unit> allUnits = new ArrayList<>(holyTeam); // Все юниты с обеих команд
+        allUnits.addAll(darkTeam);
+        allUnits.sort((t1, t2) -> t2.speed - t1.speed);
+        System.out.println(allUnits);
     }
+
 
     public static ArrayList<Unit> holyTeam;
     public static ArrayList<Unit> darkTeam;
