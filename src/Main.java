@@ -18,12 +18,12 @@ public class Main {
 
 
         // поиск ближайших целей стрелков команды holyTeam и выстрел по ближайшему противнику
-        for (int i = 0; i < holyTeam.size(); i++) {
-            if (holyTeam.get(i) instanceof Crossbowman) {
+        for (int i = 0; i < darkTeam.size(); i++) {
+            if (darkTeam.get(i) instanceof Sniper) {
                 System.out.println("До выстрела здоровье цели: " + darkTeam.get(i).getHealth());
-                System.out.println("Количество выстрелов до действия: " + ((Crossbowman) holyTeam.get(i)).getBolts());
-                holyTeam.get(i).step(darkTeam);
-                System.out.println("Количество выстрелов после действия: " + ((Crossbowman) holyTeam.get(i)).getBolts());
+                System.out.println("Количество выстрелов до действия: " + ((Sniper) darkTeam.get(i)).getNumShot());
+                darkTeam.get(i).step(holyTeam, darkTeam);
+                System.out.println("Количество выстрелов после действия: " + ((Sniper) darkTeam.get(i)).getNumShot());
                 System.out.println("После выстрела здоровье цели:" + darkTeam.get(i).getHealth());
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             }

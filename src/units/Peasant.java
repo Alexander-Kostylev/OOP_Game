@@ -10,7 +10,7 @@ public class Peasant extends Unit implements GiveArrow {
     int capacityBag;
     int stamina;
     public Peasant(String name, int x, int y) {
-        super(name,20, 15, 2, 5, "nothing", x, y);
+        super(name,20, 15, 2, 5, "nothing", x, y, 1);
         this.arrowsInBag = 3;
         this.capacityBag = 3;
         this.stamina = 20;
@@ -31,7 +31,7 @@ public class Peasant extends Unit implements GiveArrow {
     }
 
     @Override
-    public void step(ArrayList<Unit> units) {
+    public void step(ArrayList<Unit> enemy, ArrayList<Unit> friends) {
 
     }
 }

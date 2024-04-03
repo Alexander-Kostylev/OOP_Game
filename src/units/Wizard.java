@@ -10,7 +10,7 @@ public class Wizard extends Unit implements Curse, Magic {
     int intellect;
     int magicDamage;
     public Wizard(String name, int x, int y) {
-        super(name, 40, 25, 3, 40, "stick", x, y);
+        super(name, 40, 25, 3, 40, "stick", x, y, 1);
         this.intellect = 10;
         this.mana = 10;
         this.magicDamage = 3;
@@ -35,7 +35,7 @@ public class Wizard extends Unit implements Curse, Magic {
     }
 
     @Override
-    public void step(ArrayList<Unit> units) {
+    public void step(ArrayList<Unit> enemy, ArrayList<Unit> friends) {
 
     }
 }

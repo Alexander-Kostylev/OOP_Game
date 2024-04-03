@@ -17,7 +17,7 @@ public abstract class Unit implements GameInterface {
 
     protected Position position;
 
-    public Unit(String name, int age, int health, int defense, int gold, String weapon, int x, int y) {
+    public Unit(String name, int age, int health, int defense, int gold, String weapon, int x, int y, int speed) {
         this.name = name;
         this.age = age;
         this.health = health;
@@ -25,6 +25,7 @@ public abstract class Unit implements GameInterface {
         this.gold = gold;
         this.weapon = weapon;
         this.position = new Position(x, y);
+        this.speed = speed;
     }
 
     public abstract void rest();

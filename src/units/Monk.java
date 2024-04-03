@@ -9,7 +9,7 @@ public class Monk extends Unit implements Healing, Revive {
     int mana;
     int intellect;
     public Monk(String name, int x, int y) {
-        super(name,55, 40, 7, 20,"scroll", x, y);
+        super(name,55, 40, 7, 20,"scroll", x, y, 1);
         this.mana = 20;
         this.intellect = 5;
         this.speed = 1;
@@ -33,7 +33,7 @@ public class Monk extends Unit implements Healing, Revive {
     }
 
     @Override
-    public void step(ArrayList<Unit> units) {
+    public void step(ArrayList<Unit> enemy, ArrayList<Unit> friends) {
 
     }
 }
