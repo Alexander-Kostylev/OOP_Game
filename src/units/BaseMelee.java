@@ -54,7 +54,6 @@ public abstract class BaseMelee extends Unit implements GameInterface {
                 return;
             }
         }
-
         position = newPos;
     }
 
